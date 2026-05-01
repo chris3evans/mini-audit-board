@@ -1,3 +1,7 @@
-.test {
-  background-color: red;
+@use "../../../styles/variables" as colours;
+
+.dashboard {
+  height: 100dvh;
+  width: 100dvw;
+  background-color: colours.$purple;
 }
