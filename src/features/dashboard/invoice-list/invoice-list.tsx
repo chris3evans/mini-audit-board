@@ -1,10 +1,12 @@
 import type { IInvoiceListProp } from "../../../types/client/client.interfaces";
+import { InvoiceItem } from "../invoice-item/invoice-item";
+import styles from "./invoice-list.module.scss";
 
 export const InvoiceList = ({ invoices }: IInvoiceListProp) => {
   return (
-    <div>
+    <div className={styles["invoice-list"]}>
       {invoices.map((invoice) => (
-        <div>{invoice.vendor.name}</div>
+        <InvoiceItem invoice={invoice} />
       ))}
     </div>
   );
