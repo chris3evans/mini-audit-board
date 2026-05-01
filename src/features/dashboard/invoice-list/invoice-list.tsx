@@ -6,7 +6,7 @@ export const InvoiceList = ({ invoices }: IInvoiceListProp) => {
   return (
     <div className={styles["invoice-list"]}>
       {invoices.map((invoice) => (
-        <InvoiceItem invoice={invoice} />
+        <InvoiceItem key={invoice.id} invoice={invoice} />
       ))}
     </div>
   );
