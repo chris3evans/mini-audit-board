@@ -1,4 +1,4 @@
-import type { TCurrency } from "./server.types";
+import type { TCurrency, TInvoiceStatus } from "./server.types";
 
 export interface IInvoice {
   id: string;
@@ -6,6 +6,7 @@ export interface IInvoice {
   invoice_number: string;
   amount: number;
   currency: TCurrency;
+  status: TInvoiceStatus;
 }
 
 export interface IVendor {
