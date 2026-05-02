@@ -1,6 +1,7 @@
 import { InvoiceList } from "../invoice-list/invoice-list";
 import styles from "./dashboard.module.scss";
 import { MOCK_INVOICE_LIST } from "../../../api/mock-data";
+import { Header } from "../header/header";
 
 export const Dashboard = () => {
   return (
@@ -8,6 +9,7 @@ export const Dashboard = () => {
       {/* title */}
       <h1>Mini Audit Dashboard</h1>
       {/* headers with filters */}
+      <Header />
       {/* list of invoices */}
       <InvoiceList invoices={MOCK_INVOICE_LIST} />
       {/* button / form to create new invoices (extra) */}
