@@ -1,10 +1,10 @@
+import { Outlet } from "react-router-dom";
 import styles from "./App.module.scss";
-import { Dashboard } from "./features/dashboard/dashboard/dashboard";
 
 function App() {
   return (
     <div className={styles["app"]}>
-      <Dashboard />
+      <Outlet />
     </div>
   );
 }
