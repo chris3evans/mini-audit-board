@@ -1,16 +1,17 @@
 import type { IInvoiceItemProp } from "../../../types/client/client.interfaces";
+import { InvoiceId } from "./invoice-id/invoice-id.test";
 import styles from "./invoice-item.module.scss";
 
 export const InvoiceItem = ({ invoice }: IInvoiceItemProp) => {
   return (
     <div className={styles["invoice-item"]}>
-      <div>ID: {invoice.id}</div>
-      <div>Vendor: {invoice.vendor.name}</div>
+      <InvoiceId id={invoice.id} />
+      <div>{invoice.vendor.name}</div>
 
-      <div>Invoice Number: {invoice.invoice_number}</div>
-      <div>Amount: {invoice.amount}</div>
-      <div>Currency: {invoice.currency}</div>
-      <div>Status: {invoice.status}</div>
+      <div>{invoice.invoice_number}</div>
+      <div>{invoice.amount}</div>
+      <div>{invoice.currency}</div>
+      <div>{invoice.status}</div>
     </div>
   );
 };
