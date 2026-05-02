@@ -1,0 +1,11 @@
+@use "../../../styles/variables" as colours;
+
+.dashboard {
+  display: grid;
+  grid-auto-rows: min-content;
+  row-gap: 1rem;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  width: 100rem;
+}

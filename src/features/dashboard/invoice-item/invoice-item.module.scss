@@ -1,0 +1,14 @@
+@use "../../../styles/variables" as colours;
+
+.invoice-item {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 15rem;
+  column-gap: 2.5px;
+  text-align: center;
+  background-color: colours.$purple-dark;
+  padding: 1.5rem 0rem;
+  border-radius: 5px;
+  cursor: pointer;
+}

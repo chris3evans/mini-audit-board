@@ -1,0 +1,16 @@
+@use "../../../styles/variables" as colours;
+
+.header {
+  width: 100%;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  column-gap: 2.5px;
+  text-align: center;
+  border: 2.5px solid colours.$purple-dark;
+  background-color: colours.$purple-dark;
+
+  .header-column {
+    background-color: colours.$purple;
+  }
+}

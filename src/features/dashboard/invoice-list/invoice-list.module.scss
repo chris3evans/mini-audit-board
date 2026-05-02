@@ -1,0 +1,11 @@
+@use "../../../styles/variables" as colours;
+
+.invoice-list {
+  display: grid;
+  grid-auto-rows: min-content;
+  row-gap: 0.5rem;
+  max-height: 50rem;
+  overflow-y: auto;
+  scrollbar-color: colours.$purple-dark colours.$purple;
+  scrollbar-width: thin;
+}

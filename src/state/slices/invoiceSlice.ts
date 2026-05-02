@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { IInvoice } from "../../types/client/interfaces/invoice.interfaces";
+import type { IInvoice } from "../../types/server/server.interfaces";
 
 export interface IInvoiceState {
   invoices: IInvoice[];
