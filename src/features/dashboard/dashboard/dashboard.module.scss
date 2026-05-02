@@ -1,14 +1,11 @@
 @use "../../../styles/variables" as colours;
 
 .dashboard {
-  height: 100dvh;
-  width: 100dvw;
   display: grid;
   grid-auto-rows: min-content;
   row-gap: 1rem;
   justify-content: center;
   align-content: center;
   justify-items: center;
-  background-color: colours.$purple;
-  color: colours.$white;
+  width: 100rem;
 }
