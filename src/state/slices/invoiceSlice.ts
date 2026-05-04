@@ -3,23 +3,17 @@ import type { IInvoice } from "../../types/server/server.interfaces";
 
 export interface IInvoiceState {
   invoices: IInvoice[];
-  test: number;
 }
 
 const initialState: IInvoiceState = {
   invoices: [],
-  test: 0,
 };
 
 export const invoiceSlice = createSlice({
   name: "invoice",
   initialState,
-  reducers: {
-    updateTestState(state, action: PayloadAction<{ amount: number }>) {
-      state.test = state.test + action.payload.amount;
-    },
-  },
+  reducers: {},
 });
 
-export const { updateTestState } = invoiceSlice.actions;
+export const {} = invoiceSlice.actions;
 export default invoiceSlice.reducer;
