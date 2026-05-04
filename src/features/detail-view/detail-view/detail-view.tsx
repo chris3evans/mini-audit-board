@@ -1,3 +1,9 @@
 export const DetailView = () => {
-  return <div>Detail View Works!</div>;
+  return (
+    <div>
+      {/* Invoice details section */}
+      {/* Change invoice status section */}
+      Detail View Works!
+    </div>
+  );
 };
