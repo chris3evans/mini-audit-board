@@ -6,11 +6,8 @@ import { Header } from "../header/header";
 export const Dashboard = () => {
   return (
     <div className={styles["dashboard"]}>
-      {/* title */}
       <h1>Mini Audit Dashboard</h1>
-      {/* headers with filters */}
       <Header />
-      {/* list of invoices */}
       <InvoiceList invoices={MOCK_INVOICE_LIST} />
       {/* button / form to create new invoices (extra) */}
     </div>
