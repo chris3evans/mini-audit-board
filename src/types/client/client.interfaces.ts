@@ -10,4 +10,5 @@ export interface IInvoiceItemProp {
   invoice: IInvoice;
   vendor: IVendor | undefined;
   address: IAddress | undefined;
+  onClick?: () => void;
 }

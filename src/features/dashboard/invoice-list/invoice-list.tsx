@@ -1,4 +1,13 @@
+import { useAppDispatch } from "../../../hooks/state.hooks";
+import { setSelectedAddressId } from "../../../state/slices/addressSlice";
+import { setSelectedInvoiceId } from "../../../state/slices/invoiceSlice";
+import { setSelectedVendorId } from "../../../state/slices/vendorSlice";
 import type { IInvoiceListProp } from "../../../types/client/client.interfaces";
+import type {
+  IAddress,
+  IInvoice,
+  IVendor,
+} from "../../../types/server/server.interfaces";
 import { InvoiceItem } from "../invoice-item/invoice-item";
 import styles from "./invoice-list.module.scss";
 
@@ -7,6 +16,18 @@ export const InvoiceList = ({
   vendors,
   addresses,
 }: IInvoiceListProp) => {
+  const dispatch = useAppDispatch();
+
+  const handleInvoiceItemClick = (
+    invoice: IInvoice,
+    vendor: IVendor | undefined,
+    address: IAddress | undefined,
+  ): void => {
+    dispatch(setSelectedInvoiceId({ invoiceId: invoice.id }));
+    dispatch(setSelectedVendorId({ vendorId: vendor?.id ?? null }));
+    dispatch(setSelectedAddressId({ addressId: address?.id ?? null }));
+  };
+
   return (
     <div className={styles["invoice-list"]}>
       {invoices.map((invoice) => {
@@ -24,6 +45,7 @@ export const InvoiceList = ({
             invoice={invoice}
             vendor={vendor}
             address={address}
+            onClick={() => handleInvoiceItemClick(invoice, vendor, address)}
           />
         );
       })}

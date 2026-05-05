@@ -6,9 +6,14 @@ import { InvoiceNumber } from "./invoice-number/invoice-number";
 import { InvoiceAmount } from "./invoice-amount/invoice-amount";
 import { InvoiceVendor } from "./invoice-vendor/invoice-vendor";
 
-export const InvoiceItem = ({ invoice, vendor, address }: IInvoiceItemProp) => {
+export const InvoiceItem = ({
+  invoice,
+  vendor,
+  address,
+  onClick,
+}: IInvoiceItemProp) => {
   return (
-    <Link to="/invoice" className={styles["invoice-item"]}>
+    <Link to="/invoice" className={styles["invoice-item"]} onClick={onClick}>
       <InvoiceId id={invoice.id} />
       <InvoiceVendor vendor={vendor && vendor.name} />
       <InvoiceNumber invoiceNumber={invoice.invoice_number} />
