@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getInvoices, getVendors } from "../api/api.service";
+import { getAddresses, getInvoices, getVendors } from "../api/api.service";
 
 export const useInvoices = () => {
   return useQuery({
@@ -12,5 +12,12 @@ export const useVendors = () => {
   return useQuery({
     queryKey: ["invoices"],
     queryFn: getVendors,
+  });
+};
+
+export const useAddresses = () => {
+  return useQuery({
+    queryKey: ["addresses"],
+    queryFn: getAddresses,
   });
 };
