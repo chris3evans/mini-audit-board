@@ -8,6 +8,9 @@ export const DetailView = ({}) => {
   const selectedVendorId = useAppSelector(
     (state) => state.vendors.selectedVendorId,
   );
+  const selectedAddressId = useAppSelector(
+    (state) => state.addresses.selectedAddressId,
+  );
 
   return (
     <div className={styles["detail-view"]}>
@@ -16,7 +19,7 @@ export const DetailView = ({}) => {
 
         <div className={styles["vendor-details"]}>{selectedVendorId}</div>
 
-        <div className={styles["address-details"]}></div>
+        <div className={styles["address-details"]}>{selectedAddressId}</div>
       </div>
       {/* Change invoice status section */}
     </div>
