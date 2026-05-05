@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useAppSelector } from "../../../hooks/state.hooks";
 import {
   useAddresses,
@@ -21,6 +22,9 @@ export const DetailView = ({}) => {
   const { data: vendors, isLoading: vendorsLoading } = useVendors();
   const { data: addresses, isLoading: addressesLoading } = useAddresses();
 
+  const [renderVendor, setRenderVendor] = useState<boolean>(false);
+  const [renderAddress, setRenderAddress] = useState<boolean>(false);
+
   const selectedInvoice = invoices?.find(
     (invoice) => invoice.id === selectedInvoiceId,
   );
@@ -30,6 +34,22 @@ export const DetailView = ({}) => {
   const selectedAddress = addresses?.find(
     (address) => address.id === selectedAddressId,
   );
+
+  useEffect(() => {
+    setRenderVendor(false);
+    setRenderAddress(false);
+  }, [selectedInvoiceId]);
+
+  useEffect(() => {
+    setRenderAddress(false);
+  }, [renderVendor]);
+
+  const handleShowVendorClick = (): void => {
+    setRenderVendor(!renderVendor);
+  };
+  const handleShowAddressClick = (): void => {
+    setRenderAddress(!renderAddress);
+  };
 
   return (
     <div className={styles["detail-view"]}>
@@ -82,13 +102,15 @@ export const DetailView = ({}) => {
                 </span>
               </div>
               <div className={styles["detail-grid-item"]}>
-                <button type="button">Show Vendor</button>
+                <button type="button" onClick={handleShowVendorClick}>
+                  {renderVendor ? "Hide" : "Show"} Vendor
+                </button>
               </div>
             </div>
           </div>
         )}
 
-        {selectedVendorId && (
+        {selectedVendorId && renderVendor && (
           <div className={styles["detail-section"]}>
             <h3>Vendor</h3>
             <div className={styles["detail-grid"]}>
@@ -138,51 +160,59 @@ export const DetailView = ({}) => {
                 <span>{selectedVendor?.rating ?? "Could not load Rating"}</span>
               </div>
               <div className={styles["detail-grid-item"]}>
-                <button type="button">Show Address</button>
+                <button type="button" onClick={handleShowAddressClick}>
+                  {renderAddress ? "Hide" : "Show"} Address
+                </button>
               </div>
             </div>
           </div>
         )}
 
-        <div className={styles["detail-section"]}>
-          <h3>Address</h3>
-          <div className={styles["detail-grid"]}>
-            <div className={styles["detail-grid-item"]}>
-              <span>
-                <b>Address Id:</b>
-              </span>
-              <span>{selectedAddress?.id ?? "Could not load Address ID"}</span>
-            </div>
-            <div className={styles["detail-grid-item"]}>
-              <span>
-                <b>Line 1:</b>
-              </span>
-              <span>{selectedAddress?.line_1 ?? "Could not load Line 1"}</span>
-            </div>
-            <div className={styles["detail-grid-item"]}>
-              <span>
-                <b>City:</b>
-              </span>
-              <span>{selectedAddress?.city ?? "Could not load City"}</span>
-            </div>
-            <div className={styles["detail-grid-item"]}>
-              <span>
-                <b>Postcode:</b>
-              </span>
-              <span>
-                {selectedAddress?.postcode ?? "Could not load Postcode"}
-              </span>
-            </div>
-            <div className={styles["detail-grid-item"]}>
-              <span>
-                <b>Country:</b>
-              </span>
-              <span>
-                {selectedAddress?.country ?? "Could not load Country"}
-              </span>
+        {selectedAddressId && renderAddress && (
+          <div className={styles["detail-section"]}>
+            <h3>Address</h3>
+            <div className={styles["detail-grid"]}>
+              <div className={styles["detail-grid-item"]}>
+                <span>
+                  <b>Address Id:</b>
+                </span>
+                <span>
+                  {selectedAddress?.id ?? "Could not load Address ID"}
+                </span>
+              </div>
+              <div className={styles["detail-grid-item"]}>
+                <span>
+                  <b>Line 1:</b>
+                </span>
+                <span>
+                  {selectedAddress?.line_1 ?? "Could not load Line 1"}
+                </span>
+              </div>
+              <div className={styles["detail-grid-item"]}>
+                <span>
+                  <b>City:</b>
+                </span>
+                <span>{selectedAddress?.city ?? "Could not load City"}</span>
+              </div>
+              <div className={styles["detail-grid-item"]}>
+                <span>
+                  <b>Postcode:</b>
+                </span>
+                <span>
+                  {selectedAddress?.postcode ?? "Could not load Postcode"}
+                </span>
+              </div>
+              <div className={styles["detail-grid-item"]}>
+                <span>
+                  <b>Country:</b>
+                </span>
+                <span>
+                  {selectedAddress?.country ?? "Could not load Country"}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
