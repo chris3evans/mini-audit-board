@@ -1,5 +1,6 @@
 import { useAppDispatch } from "../../../hooks/state.hooks";
 import { setSelectedInvoiceId } from "../../../state/slices/invoiceSlice";
+import { setSelectedVendorId } from "../../../state/slices/vendorSlice";
 import type { IInvoiceListProp } from "../../../types/client/client.interfaces";
 import type {
   IAddress,
@@ -22,6 +23,7 @@ export const InvoiceList = ({
     address: IAddress | undefined,
   ): void => {
     dispatch(setSelectedInvoiceId({ invoiceId: invoice.id }));
+    dispatch(setSelectedVendorId({ vendorId: vendor?.id ?? null }));
   };
 
   return (
