@@ -1,19 +1,22 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { IInvoice } from "../../types/server/server.interfaces";
 
 export interface IInvoiceState {
-  invoices: IInvoice[];
+  selectedInvoiceId: string;
 }
 
 const initialState: IInvoiceState = {
-  invoices: [],
+  selectedInvoiceId: "",
 };
 
 export const invoiceSlice = createSlice({
   name: "invoice",
   initialState,
-  reducers: {},
+  reducers: {
+    setSelectedInvoiceId(state, action: PayloadAction<{ invoiceId: string }>) {
+      state.selectedInvoiceId = action.payload.invoiceId;
+    },
+  },
 });
 
-export const {} = invoiceSlice.actions;
+export const { setSelectedInvoiceId } = invoiceSlice.actions;
 export default invoiceSlice.reducer;
