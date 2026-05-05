@@ -7,9 +7,6 @@ export const Header = () => {
         <h3>Invoice Id</h3>
       </div>
       <div className={styles["header-column"]}>
-        <h3>Vendor Name</h3>
-      </div>
-      <div className={styles["header-column"]}>
         <h3>Invoice Number</h3>
       </div>
 

@@ -2,7 +2,7 @@ import type { TCurrency, TInvoiceStatus } from "./server.types";
 
 export interface IInvoice {
   id: string;
-  vendor: IVendor;
+  vendor_id: string;
   invoice_number: string;
   amount: number;
   currency: TCurrency;
@@ -12,7 +12,7 @@ export interface IInvoice {
 export interface IVendor {
   id: string;
   name: string;
-  address: IAddress;
+  address_id: string;
   vat_number: string;
   account_number: string;
   new_vendor: boolean;
@@ -20,6 +20,7 @@ export interface IVendor {
 }
 
 export interface IAddress {
+  id: string;
   line_1: string;
   city: string;
   postcode: string;
