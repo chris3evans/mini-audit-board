@@ -102,7 +102,11 @@ export const DetailView = ({}) => {
                 </span>
               </div>
               <div className={styles["detail-grid-item"]}>
-                <button type="button" onClick={handleShowVendorClick}>
+                <button
+                  className={styles["button"]}
+                  type="button"
+                  onClick={handleShowVendorClick}
+                >
                   {renderVendor ? "Hide" : "Show"} Vendor
                 </button>
               </div>
@@ -160,7 +164,11 @@ export const DetailView = ({}) => {
                 <span>{selectedVendor?.rating ?? "Could not load Rating"}</span>
               </div>
               <div className={styles["detail-grid-item"]}>
-                <button type="button" onClick={handleShowAddressClick}>
+                <button
+                  className={styles["button"]}
+                  type="button"
+                  onClick={handleShowAddressClick}
+                >
                   {renderAddress ? "Hide" : "Show"} Address
                 </button>
               </div>

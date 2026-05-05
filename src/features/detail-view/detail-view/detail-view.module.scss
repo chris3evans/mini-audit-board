@@ -7,8 +7,8 @@
   display: grid;
   grid-auto-rows: min-content;
   row-gap: 5rem;
-  background-color: colours.$purple-light;
-  padding: 2.5rem;
+  background-color: colours.$light-grey;
+  padding: 1rem;
   border-radius: 5px;
 }
 
@@ -31,5 +31,19 @@
       column-gap: 5rem;
       grid-auto-flow: column;
     }
+  }
+}
+
+.button {
+  border: none;
+  border-radius: 5px;
+  background-color: colours.$purple-light;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s;
+
+  &:hover {
+    color: colours.$white;
   }
 }
