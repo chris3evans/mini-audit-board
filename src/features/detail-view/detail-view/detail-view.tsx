@@ -1,5 +1,9 @@
 import { useAppSelector } from "../../../hooks/state.hooks";
-import { useInvoices, useVendors } from "../../../hooks/tanstack-query.hooks";
+import {
+  useAddresses,
+  useInvoices,
+  useVendors,
+} from "../../../hooks/tanstack-query.hooks";
 import styles from "./detail-view.module.scss";
 
 export const DetailView = ({}) => {
@@ -15,6 +19,7 @@ export const DetailView = ({}) => {
 
   const { data: invoices, isLoading: invoicesLoading } = useInvoices();
   const { data: vendors, isLoading: vendorsLoading } = useVendors();
+  const { data: addresses, isLoading: addressesLoading } = useAddresses();
 
   const selectedInvoice = invoices?.find(
     (invoice) => invoice.id === selectedInvoiceId,
@@ -22,12 +27,16 @@ export const DetailView = ({}) => {
   const selectedVendor = vendors?.find(
     (vendor) => vendor.id === selectedVendorId,
   );
+  const selectedAddress = addresses?.find(
+    (address) => address.id === selectedAddressId,
+  );
 
   return (
     <div className={styles["detail-view"]}>
       <div className={styles["details"]}>
         {invoicesLoading && <div>Loading Invoice Details</div>}
         {vendorsLoading && <div>Loading Vendor Details</div>}
+        {addressesLoading && <div>Loading Address Details</div>}
         {selectedInvoiceId && (
           <div className={styles["detail-section"]}>
             <h3>Invoice</h3>
@@ -128,17 +137,53 @@ export const DetailView = ({}) => {
                 </span>
                 <span>{selectedVendor?.rating ?? "Could not load Rating"}</span>
               </div>
+              <div className={styles["detail-grid-item"]}>
+                <button type="button">Show Address</button>
+              </div>
             </div>
           </div>
         )}
 
         <div className={styles["detail-section"]}>
           <h3>Address</h3>
-          <div className={styles["detail-grid"]}></div>
-          {selectedAddressId}
+          <div className={styles["detail-grid"]}>
+            <div className={styles["detail-grid-item"]}>
+              <span>
+                <b>Address Id:</b>
+              </span>
+              <span>{selectedAddress?.id ?? "Could not load Address ID"}</span>
+            </div>
+            <div className={styles["detail-grid-item"]}>
+              <span>
+                <b>Line 1:</b>
+              </span>
+              <span>{selectedAddress?.line_1 ?? "Could not load Line 1"}</span>
+            </div>
+            <div className={styles["detail-grid-item"]}>
+              <span>
+                <b>City:</b>
+              </span>
+              <span>{selectedAddress?.city ?? "Could not load City"}</span>
+            </div>
+            <div className={styles["detail-grid-item"]}>
+              <span>
+                <b>Postcode:</b>
+              </span>
+              <span>
+                {selectedAddress?.postcode ?? "Could not load Postcode"}
+              </span>
+            </div>
+            <div className={styles["detail-grid-item"]}>
+              <span>
+                <b>Country:</b>
+              </span>
+              <span>
+                {selectedAddress?.country ?? "Could not load Country"}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
-      {/* Change invoice status section */}
     </div>
   );
 };
