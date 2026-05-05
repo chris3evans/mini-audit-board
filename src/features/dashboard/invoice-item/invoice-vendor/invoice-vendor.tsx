@@ -1,3 +1,3 @@
-export const InvoiceVendor = ({ vendor }: { vendor: string }) => {
-  return <div>{vendor}</div>;
+export const InvoiceVendor = ({ vendor }: { vendor: string | undefined }) => {
+  return <div>{vendor ?? "No Vendor"}</div>;
 };
