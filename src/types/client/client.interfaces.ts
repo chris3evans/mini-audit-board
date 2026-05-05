@@ -12,9 +12,3 @@ export interface IInvoiceItemProp {
   address: IAddress | undefined;
   onClick?: () => void;
 }
-
-// export interface IDetailViewProp {
-//   invoice: IInvoice;
-//   vendor: IVendor | undefined;
-//   address: IAddress | undefined;
-// }

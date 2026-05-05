@@ -1,11 +1,11 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 export interface IInvoiceState {
-  selectedInvoiceId: string;
+  selectedInvoiceId: string | null;
 }
 
 const initialState: IInvoiceState = {
-  selectedInvoiceId: "",
+  selectedInvoiceId: null,
 };
 
 export const invoiceSlice = createSlice({
