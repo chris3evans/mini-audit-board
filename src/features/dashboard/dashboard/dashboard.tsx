@@ -1,20 +1,25 @@
 import { InvoiceList } from "../invoice-list/invoice-list";
 import styles from "./dashboard.module.scss";
 import { Header } from "../header/header";
-import { useInvoices } from "../../../hooks/tanstack-query.hooks";
+import { useInvoices, useVendors } from "../../../hooks/tanstack-query.hooks";
 
 export const Dashboard = () => {
-  const { data, isLoading } = useInvoices();
+  const { data: invoices, isLoading: invoiceLoading } = useInvoices();
+  const { data: vendors, isLoading: vendorsLoading } = useVendors();
 
-  if (isLoading) {
+  if (invoiceLoading) {
     return <div>Invoices are loading!</div>;
+  }
+
+  if (vendorsLoading) {
+    return <div>Vendors are loading!</div>;
   }
 
   return (
     <div className={styles["dashboard"]}>
       <h1>Mini Audit Dashboard</h1>
       <Header />
-      <InvoiceList invoices={data ?? []} />
+      <InvoiceList vendors={vendors ?? []} invoices={invoices ?? []} />
       {/* button / form to create new invoices (extra) */}
     </div>
   );

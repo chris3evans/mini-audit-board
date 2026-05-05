@@ -4,11 +4,13 @@ import { InvoiceId } from "./invoice-id/invoice-id.test";
 import styles from "./invoice-item.module.scss";
 import { InvoiceNumber } from "./invoice-number/invoice-number";
 import { InvoiceAmount } from "./invoice-amount/invoice-amount";
+import { InvoiceVendor } from "./invoice-vendor/invoice-vendor";
 
-export const InvoiceItem = ({ invoice }: IInvoiceItemProp) => {
+export const InvoiceItem = ({ invoice, vendor }: IInvoiceItemProp) => {
   return (
     <Link to="/invoice" className={styles["invoice-item"]}>
       <InvoiceId id={invoice.id} />
+      <InvoiceVendor vendor={vendor && vendor.name} />
       <InvoiceNumber invoiceNumber={invoice.invoice_number} />
       <InvoiceAmount amount={invoice.amount} />
       <div>{invoice.currency}</div>
