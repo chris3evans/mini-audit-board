@@ -3,10 +3,10 @@ import styles from "./App.module.scss";
 import { useTheme } from "./context/ThemeContext";
 
 function App() {
-  const { theme, toggleTheme } = useTheme();
+  // const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={`${styles["app"]} ${styles[theme]}`} onClick={toggleTheme}>
+    <div className={styles["app"]}>
       <Outlet />
     </div>
   );

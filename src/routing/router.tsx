@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import { DetailView } from "../features/detail-view/detail-view/detail-view";
+import { DetailView } from "../features/detail-view/DetailView/DetailView";
 import App from "../App";
-import { Dashboard } from "../features/dashboard/dashboard/dashboard";
+import { Dashboard } from "../features/dashboard/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {

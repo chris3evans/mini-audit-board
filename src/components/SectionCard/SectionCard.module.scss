@@ -1,0 +1,10 @@
+@use "../../styles/variables" as colours;
+
+.detail-section {
+  background-color: colours.$purple-dark;
+  padding: 1.5rem;
+  border-radius: 5px;
+  display: grid;
+  grid-auto-rows: min-content;
+  row-gap: 1.5rem;
+}

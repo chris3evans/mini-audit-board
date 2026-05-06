@@ -1,0 +1,12 @@
+.detail-grid {
+  display: grid;
+  grid-auto-rows: min-content;
+  row-gap: 1rem;
+
+  .detail-grid-item {
+    display: grid;
+    grid-auto-columns: 1fr;
+    column-gap: 5rem;
+    grid-auto-flow: column;
+  }
+}

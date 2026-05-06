@@ -1,11 +1,11 @@
-import { InvoiceList } from "../invoice-list/invoice-list";
+import { InvoiceList } from "../InvoiceList/InvoiceList";
 import styles from "./dashboard.module.scss";
-import { Header } from "../header/header";
 import {
   useAddresses,
   useInvoices,
   useVendors,
 } from "../../../hooks/tanstack-query.hooks";
+import { Header } from "../Header/Header";
 
 export const Dashboard = () => {
   const { data: invoices, isLoading: invoiceLoading } = useInvoices();

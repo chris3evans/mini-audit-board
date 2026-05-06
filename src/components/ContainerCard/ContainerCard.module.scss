@@ -1,0 +1,10 @@
+@use "../../styles/variables" as colours;
+
+.container-card {
+  display: grid;
+  grid-auto-rows: min-content;
+  row-gap: 5rem;
+  background-color: colours.$light-grey;
+  padding: 1rem;
+  border-radius: 5px;
+}
