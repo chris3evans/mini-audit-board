@@ -7,12 +7,11 @@ import {
 } from "../../../hooks/tanstack-query.hooks";
 import styles from "./DetailView.module.scss";
 import { ContainerCard } from "../../../components/ContainerCard/ContainerCard";
-import { SectionCard } from "../../../components/SectionCard/SectionCard";
-import { Button } from "../../../components/Button/Button";
 import { InvoiceSection } from "../InvoiceSection/InvoiceSection";
 import { VendorSection } from "../VendorSection/VendorSection";
+import { AddressSection } from "../AddressSection/AddressSection";
 
-export const DetailView = ({}) => {
+export const DetailView = () => {
   const selectedInvoiceId = useAppSelector(
     (state) => state.invoices.selectedInvoiceId,
   );
@@ -79,48 +78,7 @@ export const DetailView = ({}) => {
         )}
 
         {selectedAddressId && renderAddress && (
-          <SectionCard sectionTitle="Address">
-            <div className={styles["detail-grid"]}>
-              <div className={styles["detail-grid-item"]}>
-                <span>
-                  <b>Address Id:</b>
-                </span>
-                <span>
-                  {selectedAddress?.id ?? "Could not load Address ID"}
-                </span>
-              </div>
-              <div className={styles["detail-grid-item"]}>
-                <span>
-                  <b>Line 1:</b>
-                </span>
-                <span>
-                  {selectedAddress?.line_1 ?? "Could not load Line 1"}
-                </span>
-              </div>
-              <div className={styles["detail-grid-item"]}>
-                <span>
-                  <b>City:</b>
-                </span>
-                <span>{selectedAddress?.city ?? "Could not load City"}</span>
-              </div>
-              <div className={styles["detail-grid-item"]}>
-                <span>
-                  <b>Postcode:</b>
-                </span>
-                <span>
-                  {selectedAddress?.postcode ?? "Could not load Postcode"}
-                </span>
-              </div>
-              <div className={styles["detail-grid-item"]}>
-                <span>
-                  <b>Country:</b>
-                </span>
-                <span>
-                  {selectedAddress?.country ?? "Could not load Country"}
-                </span>
-              </div>
-            </div>
-          </SectionCard>
+          <AddressSection selectedAddress={selectedAddress} />
         )}
       </ContainerCard>
     </div>
