@@ -8,6 +8,7 @@ import {
 import styles from "./DetailView.module.scss";
 import { ContainerCard } from "../../../components/ContainerCard/ContainerCard";
 import { SectionCard } from "../../../components/SectionCard/SectionCard";
+import { Button } from "../../../components/Button/Button";
 
 export const DetailView = ({}) => {
   const selectedInvoiceId = useAppSelector(
@@ -103,13 +104,13 @@ export const DetailView = ({}) => {
                 </span>
               </div>
               <div className={styles["detail-grid-item"]}>
-                <button
-                  className={styles["button"]}
+                <Button
                   type="button"
                   onClick={handleShowVendorClick}
-                >
-                  {renderVendor ? "Hide" : "Show"} Vendor
-                </button>
+                  buttonText={`${renderVendor ? "Hide" : "Show"} Vendor`}
+                  size="medium"
+                  variant="light"
+                />
               </div>
             </div>
           </SectionCard>
@@ -164,13 +165,13 @@ export const DetailView = ({}) => {
                 <span>{selectedVendor?.rating ?? "Could not load Rating"}</span>
               </div>
               <div className={styles["detail-grid-item"]}>
-                <button
-                  className={styles["button"]}
+                <Button
                   type="button"
+                  size="medium"
+                  variant="light"
+                  buttonText={`${renderAddress ? "Hide" : "Show"} Address`}
                   onClick={handleShowAddressClick}
-                >
-                  {renderAddress ? "Hide" : "Show"} Address
-                </button>
+                />
               </div>
             </div>
           </SectionCard>

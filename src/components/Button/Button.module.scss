@@ -1,0 +1,23 @@
+@use "../../styles/variables" as colours;
+
+.button {
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s;
+
+  &:hover {
+    color: colours.$white;
+  }
+}
+
+.button-light {
+  background-color: colours.$purple-light;
+}
+
+.button-dark {
+  background-color: colours.$purple-dark;
+  color: colours.$white;
+}

@@ -1,5 +1,3 @@
-@use "../../../styles/variables" as colours;
-
 .detail-view {
 }
 
@@ -13,19 +11,5 @@
     grid-auto-columns: 1fr;
     column-gap: 5rem;
     grid-auto-flow: column;
-  }
-}
-
-.button {
-  border: none;
-  border-radius: 5px;
-  background-color: colours.$purple-light;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  transition: all 0.3s;
-
-  &:hover {
-    color: colours.$white;
   }
 }
