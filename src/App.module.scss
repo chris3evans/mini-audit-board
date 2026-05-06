@@ -8,4 +8,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &.light {
+    background-color: colours.$white;
+    color: colours.$purple-dark;
+  }
 }
