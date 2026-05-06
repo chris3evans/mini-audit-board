@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import type { IInvoiceItemProp } from "../../../types/client/client.interfaces";
-import { InvoiceId } from "./invoice-id/invoice-id.test";
-import styles from "./invoice-item.module.scss";
-import { InvoiceNumber } from "./invoice-number/invoice-number";
-import { InvoiceAmount } from "./invoice-amount/invoice-amount";
-import { InvoiceVendor } from "./invoice-vendor/invoice-vendor";
+import { InvoiceId } from "./InvoiceId/InvoiceId.test";
+import styles from "./InvoiceItem.module.scss";
+import { InvoiceNumber } from "./InvoiceNumber/InvoiceNumber";
+import { InvoiceAmount } from "./InvoiceAmount/InvoiceAmount";
+import { InvoiceVendor } from "./InvoiceVendor/InvoiceVendor";
 
 export const InvoiceItem = ({
   invoice,

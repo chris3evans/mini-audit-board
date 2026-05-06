@@ -8,8 +8,8 @@ import type {
   IInvoice,
   IVendor,
 } from "../../../types/server/server.interfaces";
-import { InvoiceItem } from "../invoice-item/invoice-item";
-import styles from "./invoice-list.module.scss";
+import { InvoiceItem } from "../invoice-item/InvoiceItem";
+import styles from "./InvoiceList.module.scss";
 
 export const InvoiceList = ({
   invoices,

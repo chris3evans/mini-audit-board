@@ -5,7 +5,7 @@ import {
   useInvoices,
   useVendors,
 } from "../../../hooks/tanstack-query.hooks";
-import styles from "./detail-view.module.scss";
+import styles from "./DetailView.module.scss";
 
 export const DetailView = ({}) => {
   const selectedInvoiceId = useAppSelector(
