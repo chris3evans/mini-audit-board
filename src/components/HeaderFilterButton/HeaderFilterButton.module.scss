@@ -1,0 +1,14 @@
+@use "../../styles/variables" as colours;
+
+.header-column {
+  background-color: colours.$purple;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  color: colours.$white;
+
+  &:hover {
+    background-color: colours.$purple-light;
+  }
+}

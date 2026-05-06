@@ -12,5 +12,12 @@
 
   .header-column {
     background-color: colours.$purple;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: colours.$purple-light;
+    }
   }
 }
