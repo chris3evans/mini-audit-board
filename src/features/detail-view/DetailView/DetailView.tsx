@@ -6,6 +6,7 @@ import {
   useVendors,
 } from "../../../hooks/tanstack-query.hooks";
 import styles from "./DetailView.module.scss";
+import { ContainerCard } from "../../../components/ContainerCard/ContainerCard";
 
 export const DetailView = ({}) => {
   const selectedInvoiceId = useAppSelector(
@@ -53,7 +54,7 @@ export const DetailView = ({}) => {
 
   return (
     <div className={styles["detail-view"]}>
-      <div className={styles["details"]}>
+      <ContainerCard>
         {invoicesLoading && <div>Loading Invoice Details</div>}
         {vendorsLoading && <div>Loading Vendor Details</div>}
         {addressesLoading && <div>Loading Address Details</div>}
@@ -128,7 +129,7 @@ export const DetailView = ({}) => {
                 <span>
                   <b>Name:</b>
                 </span>
-                <span>{selectedVendor?.id ?? "Could not load Name"}</span>
+                <span>{selectedVendor?.name ?? "Could not load Name"}</span>
               </div>
               <div className={styles["detail-grid-item"]}>
                 <span>
@@ -221,7 +222,7 @@ export const DetailView = ({}) => {
             </div>
           </div>
         )}
-      </div>
+      </ContainerCard>
     </div>
   );
 };

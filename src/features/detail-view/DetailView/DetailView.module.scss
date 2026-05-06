@@ -3,15 +3,6 @@
 .detail-view {
 }
 
-.details {
-  display: grid;
-  grid-auto-rows: min-content;
-  row-gap: 5rem;
-  background-color: colours.$light-grey;
-  padding: 1rem;
-  border-radius: 5px;
-}
-
 .detail-section {
   background-color: colours.$purple-dark;
   padding: 1.5rem;
