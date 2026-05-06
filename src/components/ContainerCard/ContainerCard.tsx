@@ -9,7 +9,7 @@ export const ContainerCard = ({
   extraStyles?: string;
 }) => {
   return (
-    <div className={`${styles["container-card"]} ${extraStyles}`}>
+    <div className={`${styles["container-card"]} ${extraStyles ?? ""}`}>
       {children}
     </div>
   );

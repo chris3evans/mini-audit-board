@@ -3,25 +3,16 @@
 .detail-view {
 }
 
-.detail-section {
-  background-color: colours.$purple-dark;
-  padding: 1.5rem;
-  border-radius: 5px;
+.detail-grid {
   display: grid;
   grid-auto-rows: min-content;
-  row-gap: 1.5rem;
+  row-gap: 1rem;
 
-  .detail-grid {
+  .detail-grid-item {
     display: grid;
-    grid-auto-rows: min-content;
-    row-gap: 1rem;
-
-    .detail-grid-item {
-      display: grid;
-      grid-auto-columns: 1fr;
-      column-gap: 5rem;
-      grid-auto-flow: column;
-    }
+    grid-auto-columns: 1fr;
+    column-gap: 5rem;
+    grid-auto-flow: column;
   }
 }
 

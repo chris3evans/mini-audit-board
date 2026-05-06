@@ -7,6 +7,7 @@ import {
 } from "../../../hooks/tanstack-query.hooks";
 import styles from "./DetailView.module.scss";
 import { ContainerCard } from "../../../components/ContainerCard/ContainerCard";
+import { SectionCard } from "../../../components/SectionCard/SectionCard";
 
 export const DetailView = ({}) => {
   const selectedInvoiceId = useAppSelector(
@@ -59,8 +60,7 @@ export const DetailView = ({}) => {
         {vendorsLoading && <div>Loading Vendor Details</div>}
         {addressesLoading && <div>Loading Address Details</div>}
         {selectedInvoiceId && (
-          <div className={styles["detail-section"]}>
-            <h3>Invoice</h3>
+          <SectionCard sectionTitle="Invoice">
             <div className={styles["detail-grid"]}>
               <div className={styles["detail-grid-item"]}>
                 <span>
@@ -112,12 +112,11 @@ export const DetailView = ({}) => {
                 </button>
               </div>
             </div>
-          </div>
+          </SectionCard>
         )}
 
         {selectedVendorId && renderVendor && (
-          <div className={styles["detail-section"]}>
-            <h3>Vendor</h3>
+          <SectionCard sectionTitle="Vendor">
             <div className={styles["detail-grid"]}>
               <div className={styles["detail-grid-item"]}>
                 <span>
@@ -174,12 +173,11 @@ export const DetailView = ({}) => {
                 </button>
               </div>
             </div>
-          </div>
+          </SectionCard>
         )}
 
         {selectedAddressId && renderAddress && (
-          <div className={styles["detail-section"]}>
-            <h3>Address</h3>
+          <SectionCard sectionTitle="Address">
             <div className={styles["detail-grid"]}>
               <div className={styles["detail-grid-item"]}>
                 <span>
@@ -220,7 +218,7 @@ export const DetailView = ({}) => {
                 </span>
               </div>
             </div>
-          </div>
+          </SectionCard>
         )}
       </ContainerCard>
     </div>
