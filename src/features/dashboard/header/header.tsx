@@ -2,12 +2,16 @@ import { useState } from "react";
 import { HeaderFilterButton } from "../../../components/HeaderFilterButton/HeaderFilterButton";
 import type { TInvoiceFilter } from "../../../types/client/client.types";
 import styles from "./Header.module.scss";
+import { useAppDispatch } from "../../../hooks/state.hooks";
+import { setActiveInvoiceFilter } from "../../../state/slices/appSlice";
 
 export const Header = () => {
   const [activeFilter, setActiveFilter] = useState<TInvoiceFilter>(null);
+  const dispatch = useAppDispatch();
 
   const handleFilterClick = (filter: TInvoiceFilter): void => {
     setActiveFilter(filter === activeFilter ? null : filter);
+    dispatch(setActiveInvoiceFilter({ filter }));
   };
 
   return (

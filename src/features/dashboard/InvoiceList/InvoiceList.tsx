@@ -1,4 +1,5 @@
-import { useAppDispatch } from "../../../hooks/state.hooks";
+import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../../hooks/state.hooks";
 import { setSelectedAddressId } from "../../../state/slices/addressSlice";
 import { setSelectedInvoiceId } from "../../../state/slices/invoiceSlice";
 import { setSelectedVendorId } from "../../../state/slices/vendorSlice";
@@ -17,6 +18,32 @@ export const InvoiceList = ({
   addresses,
 }: IInvoiceListProp) => {
   const dispatch = useAppDispatch();
+  const activeInvoiceFilter = useAppSelector(
+    (state) => state.app.activeInvoiceFilter,
+  );
+  const [invoiceList, setInvoiceList] = useState<IInvoice[]>([]);
+
+  useEffect(() => {
+    setInvoiceList(invoices);
+  }, [invoices]);
+
+  useEffect(() => {
+    filterInvoices();
+  }, [activeInvoiceFilter]);
+
+  const filterInvoices = () => {
+    if (!activeInvoiceFilter) return;
+
+    const invoiceListCopy = [...invoiceList];
+
+    invoiceListCopy.sort((a, b) => {
+      return String(b[activeInvoiceFilter]).localeCompare(
+        String(a[activeInvoiceFilter]),
+      );
+    });
+
+    setInvoiceList(invoiceListCopy);
+  };
 
   const handleInvoiceItemClick = (
     invoice: IInvoice,
@@ -30,7 +57,7 @@ export const InvoiceList = ({
 
   return (
     <div className={styles["invoice-list"]}>
-      {invoices.map((invoice) => {
+      {invoiceList.map((invoice) => {
         const vendor = vendors.find(
           (vendor) => vendor.id === invoice.vendor_id,
         );
